@@ -1,6 +1,6 @@
 # Birthday Blossom
 
-Birthday Blossom is a small, modern React + Vite + TypeScript web app celebrating birthdays with animated visuals, music and a guestbook powered by Supabase. It ships a collection of reusable UI components, interactive sections (wishes, messages, guestbook, memories), and fun effects like balloons, confetti, floating hearts and sparkles.
+Birthday Blossom is a small, modern React + Vite + TypeScript web app celebrating birthdays with animated visuals, music and a guestbook. It ships a collection of reusable UI components, interactive sections (wishes, messages, guestbook, memories), and fun effects like balloons, confetti, floating hearts and sparkles.
 
 **Live Preview:** run locally with the dev server (instructions below).
 
@@ -10,7 +10,6 @@ Birthday Blossom is a small, modern React + Vite + TypeScript web app celebratin
 - **Audio:** Integrated `MusicPlayer` component for background music.
 - **Guest Interactions:** Wishes, message cards, and a guestbook section.
 - **Photo gallery:** `PhotoSlider` for memories and photos shipped in `public/photos`.
-- **Supabase integration:** client and types included for persisting messages and guestbook entries.
 - **Responsive:** `use-mobile` hook to adjust behavior for mobile devices.
 
 ## Tech stack
@@ -53,21 +52,9 @@ Run tests (vitest):
 npm run test
 ```
 
-## Environment & Supabase
+## Environment
 
-This project includes a Supabase integration under `supabase/` and `src/integrations/supabase`. To enable backend features (guestbook/messages), set the following environment variables (or configure your Supabase client appropriately):
-
-- `VITE_SUPABASE_URL` — your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY` — your Supabase anon/public key
-
-Add them to a `.env` file at the project root (Vite will expose `VITE_` prefixed vars to the client):
-
-```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=public-anon-key
-```
-
-There is also a `supabase/migrations/` folder with a sample SQL migration used by the project.
+Add any required environment variables to a `.env` file at the project root.
 
 ## Project structure (high level)
 
@@ -83,14 +70,13 @@ There is also a `supabase/migrations/` folder with a sample SQL migration used b
     - `sections/`: `HeroSection`, `WishesSection`, `MessageSection`, `GuestbookSection`, `MemoriesSection`, `FinalSection`
     - `ui/`: collection of designer-friendly primitives and components
   - [src/hooks](src/hooks): `use-mobile`, `use-toast`
-  - [src/integrations/supabase](src/integrations/supabase): `client.ts`, `types.ts`
   - [src/lib/utils.ts](src/lib/utils.ts): small helpers
 
 ## Notable files
 
 - [src/components/MusicPlayer.tsx](src/components/MusicPlayer.tsx): background audio control
 - [src/components/PhotoSlider.tsx](src/components/PhotoSlider.tsx): gallery component pulling from `public/photos`
-- [src/components/sections/GuestbookSection.tsx](src/components/sections/GuestbookSection.tsx): guestbook UI and Supabase hooks
+- [src/components/sections/GuestbookSection.tsx](src/components/sections/GuestbookSection.tsx): guestbook UI
 
 ## Styling
 
